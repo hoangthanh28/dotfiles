@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function send_notification() {
+    volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+    swaymsg -t command bar-msg 'show_notification' "{\"app\":\"changevolume\",\"id\":9993,\"urgent\":\"low\",\"icon\":\"volume-$1\",\"text\":\"Volume: ${volume}%\",\"timeout\":2000}"
+}
+
+case $1 in
+up)
+    # Set the volume on (if it was muted)
+    brightnessctl set 5%+
+   # send_notification $1
+    ;;
+down)
+    brightnessctl set 5%-
+    #send_notification $1
+    ;;
+esac

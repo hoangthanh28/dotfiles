@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function send_notification() {
+    volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+    notify-send "{\"app\":\"changevolume\",\"id\":9993,\"urgent\":\"low\",\"icon\":\"volume-$1\",\"text\":\"Volume: ${volume}%\",\"timeout\":2000}"
+}
+
+case $1 in
+up)
+    # Set the volume on (if it was muted)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    send_notification $1
+    ;;
+down)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    send_notification $1
+    ;;
+mute)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    send_notification $1
+    ;;
+mic-mute)
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    send_notification $1
+    ;;
+esac
