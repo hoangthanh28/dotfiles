@@ -14,8 +14,7 @@ set $term kitty
 set $menu rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
 
 # wallpaper
-# output * background ~/.config/backgrounds/debdino.png fill
-output * background ~/.config/backgrounds/bluemountain.jpg fill
+output * background ~/.backgrounds/wallhaven-p9gr2p_3440x1440.png fill
 output eDP-1 pos 0 0 res 2560x1600@60.03Hz 
 #output DP-5 pos 2560 0 
 # set the output into specific workspace
@@ -79,13 +78,13 @@ bindsym $mod+Ctrl+Left resize shrink width 20px
 bindsym $mod+Ctrl+Right resize grow width 20px
 
 # audio
-bindsym XF86AudioRaiseVolume exec ~/scripts/changevolume up
-bindsym XF86AudioLowerVolume exec ~/scripts/changevolume down
-bindsym XF86AudioMute exec ~/scripts/changevolume mute
-bindsym XF86AudioMicMute exec ~/scripts/changevolume mic-mute 
+bindsym XF86AudioRaiseVolume exec ~/.scripts/changevolume up
+bindsym XF86AudioLowerVolume exec ~/.scripts/changevolume down
+bindsym XF86AudioMute exec ~/.scripts/changevolume mute
+bindsym XF86AudioMicMute exec ~/.scripts/changevolume mic-mute 
 # brightness
-bindsym XF86MonBrightnessUp exec ~/scripts/changebrightness up
-bindsym XF86MonBrightnessDown exec ~/scripts/changebrightness down
+bindsym XF86MonBrightnessUp exec ~/.scripts/changebrightness up
+bindsym XF86MonBrightnessDown exec ~/.scripts/changebrightness down
 
 #
 # Workspaces:
