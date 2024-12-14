@@ -1,0 +1,19 @@
+# authorize polkit-gnome
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# notifications
+exec swaync
+
+exec swayidle \
+   timeout 900 'swaylock -f -c 000000' \
+   timeout 1800 'swaymsg "output * dpms off"' \
+      resume 'swaymsg "output * dpms on"' \
+   before-sleep 'swaylock'
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_SESSION
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec solaar -w hide
+exec copyq --start-server && copyq hide
+exec dropbox
+exec ibus-daemon -rxRd

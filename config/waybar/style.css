@@ -1,0 +1,53 @@
+* {
+    font-family: SF Pro Text;
+    font-size: 13px;
+    min-height: 0;
+    color: #ffffff;
+    padding-right: 5px;
+}
+
+window#waybar {
+    background-color: black;
+}
+
+#workspaces {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#workspaces button {
+    margin-right: 10px;
+    padding: 1px 3px;
+    font-weight: bold;
+    color: white;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    border-radius: 0px;
+    border-bottom: 1px solid white;
+}
+
+#tray,
+#mpd,
+#custom-weather,
+#cpu,
+#temperature,
+#memory,
+#sway-mode,
+#backlight,
+#pulseaudio,
+#custom-vpn,
+#disk,
+#custom-recorder,
+#custom-audiorec,
+#clock,
+#network {
+    padding: 0 5px;
+}
+
+#battery {
+    margin-right: 5px;
+}
