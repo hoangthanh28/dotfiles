@@ -1,28 +1,33 @@
 # using the super key
 set $mod Mod4
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
-set $ws9 9
+
+#=================================#
+# Keyboard Shortcuts (Workspaces) #
+#=================================#
+# Switch to workspace
+set $ws1 "1 - Firefox"
+set $ws2 "2 - Code Editor"
+set $ws3 "3 - Terminal"
+set $ws4 "4 - Database"
+set $ws5 "5 - Work"
+set $ws6 "6 - Remote Desktop"
+set $ws7 "7 - Virtual Machines"
+set $ws8 "8 - Notes"
+set $ws9 "9 - Other World"
 # set terminal and menu
 set $term kitty
-set $menu rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
+set $menu wofi --show drun  -i | xargs swaymsg exec --
 
 # wallpaper
 output * background ~/.backgrounds/wallhaven-p9gr2p_3440x1440.png fill
-output eDP-1 pos 0 0 res 2560x1600@60.03Hz 
+#output eDP-1 pos 0 0 res 2560x1600@60.03Hz 
 #output DP-5 pos 2560 0 
 # set the output into specific workspace
-workspace $ws5 output DP-5
-workspace $ws6 output DP-5
-workspace $ws7 output DP-5
-workspace $ws8 output DP-5
-workspace $ws9 output DP-5
+# workspace $ws5 output DP-5
+# workspace $ws6 output DP-5
+# workspace $ws7 output DP-5
+# workspace $ws8 output DP-5
+# workspace $ws9 output DP-5
 
 # shortcuts
 bindsym $mod+Return exec $term
@@ -31,19 +36,19 @@ bindsym $mod+n exec swaync-client -t -sw
 bindsym $mod+e exec thunar
 bindsym $mod+f1 exec firefox
 bindsym $mod+Shift+b exec firefox -private-window
-bindsym $mod+f3 exec swaymsg "workspace 3; exec $term"
-bindsym $mod+f2 exec swaymsg "workspace 2; exec code"
-bindsym $mod+f4 exec swaymsg "workspace 4; exec dbeaver"
-bindsym $mod+f5 exec swaymsg "workspace 5; exec postman --ozone-platform-hint=wayland --gtk-version=4"
-bindsym $mod+f6 exec swaymsg "workspace 6; exec microsoft-edge-stable --ozone-platform=wayland --gtk-version=4"
-bindsym $mod+f7 exec swaymsg "workspace 7; exec virsh start win10 && virt-manager --connect qemu:///system --show-domain-console win10"
-bindsym $mod+f8 exec swaymsg "workspace 8; exec remmina"
-bindsym $mod+f9 exec swaymsg "workspace 9; exec thorium-browser --ozone-platform=wayland --gtk-version=4"
-bindsym $mod+g exec swaymsg "workspace 5; exec google-chrome-stable"
-bindsym $mod+t exec swaymsg "workspace 8; exec thorium-browser --ozone-platform-hint=wayland --gtk-version=4"
+bindsym $mod+f2 exec swaymsg "workspace $ws2; exec code"
+bindsym $mod+f3 exec swaymsg "workspace $ws3; exec $term"
+bindsym $mod+f4 exec swaymsg "workspace $ws4; exec dbeaver"
+bindsym $mod+f5 exec swaymsg "workspace $ws5; exec postman --ozone-platform-hint=wayland --gtk-version=4"
+bindsym $mod+f6 exec swaymsg "workspace $ws6; exec microsoft-edge-stable"
+bindsym $mod+f7 exec swaymsg "workspace $ws7; exec virsh start win10 && virt-manager --connect qemu:///system --show-domain-console win10"
+bindsym $mod+f8 exec swaymsg "workspace $ws8; exec remmina"
+bindsym $mod+f9 exec swaymsg "workspace $ws9; exec thorium-browser --ozone-platform=wayland --gtk-version=4"
+bindsym $mod+g exec swaymsg "workspace $ws5; exec google-chrome-stable"
+bindsym $mod+t exec swaymsg "workspace $ws8; exec thorium-browser --ozone-platform-hint=wayland --gtk-version=4"
 bindsym $mod+r exec kitty -e ranger
 bindsym $mod+l exec swaylock
-bindsym Alt+s exec "flameshot gui"
+bindsym $mod+s exec "flameshot gui"
 bindsym $mod+Alt+Delete exec shutdown now
 
 # copyq
@@ -58,7 +63,7 @@ for_window [app_id="copyq"] floating enable, resize set 1280 720
 
 # windows
 bindsym $mod+q kill
-bindsym $mod+Shift+r reload; exec notify-send 'sway' 'Restarted'
+bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q exit
 
 # move focus
@@ -89,28 +94,27 @@ bindsym XF86MonBrightnessDown exec ~/.scripts/changebrightness down
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+    # Move between workspaces
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
