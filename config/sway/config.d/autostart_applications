@@ -1,7 +1,13 @@
 # authorize polkit-gnome
 #exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-# notifications
+##start ydotool daemon needed to paste in sway
+exec export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+exec ydotoold
+
+#set clipboard manager to copyq
+set $clipboard copyq toggle notifications
+
 exec swaync
 
 exec swayidle \
@@ -10,10 +16,12 @@ exec swayidle \
       resume 'swaymsg "output * dpms on"' \
    before-sleep 'swaylock'
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_SESSION
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_SESSION
+#exec hash dbus-update-activation-environment 2>/dev/null && \
+#     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 exec solaar -w hide
 exec copyq --start-server && copyq hide
-exec dropbox
-exec ibus-daemon -rxRd
+#exec dropbox
+#exec ibus-daemon -rxRd

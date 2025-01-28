@@ -8,3 +8,4 @@ ln -s $(pwd)/config/waybar ~/.config/waybar
 ln -s $(pwd)/config/xdg-desktop-portal ~/.config/xdg-desktop-portal
 ln -s $(pwd)/scripts ~/.scripts
 ln -s $(pwd)/backgrounds ~/.backgrounds
+ln -s $(pwd)/config/greetd /etc/greetd
