@@ -58,7 +58,7 @@ Then, set a password for your account:
 passwd hoangthanh28
 
 ## Install basic packages
-pacman -S base-devel grub efibootmgr nvim networkmanager sudo linux linux-headers linux-firmware mesa sway swaylock swayidle swaybg git curl pipewire wireplumber nwg-look firefox greetd flameshot copyq sof-firmware xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim ydotoold
+pacman -S base-devel grub efibootmgr nvim networkmanager sudo kitty linux linux-headers linux-firmware mesa sway swaylock swayidle swaybg git curl pipewire wireplumber nwg-look firefox greetd flameshot copyq sof-firmware xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk grim ydotoold terraform azure-cli kubectl helm podman docker-compose zsh openssh
 
 mkinitcpio -p linux
 
@@ -74,7 +74,7 @@ ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 
 ### Mount efi
 
-mount /dev/nvme0n1p2 /boot/efi
+mount /dev/nvme0n1p2 /boot/efigit@ssh.dev.azure.com:v3/thirdspacelondon/Circuit/memberfirst.service
 
 grub-install --target=x86_64-efi --bootloader-id=GRUB --boot-directory=/boot/efi --recheck
 
@@ -89,4 +89,19 @@ systemctl enable greetd
 
 systemctl enable NetworkManager
 
+systemctl enable systemd-resolved
+
 systemctl --user enable pipewire wireplumber
+
+### After installation
+
+install yay
+
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+
+yay -S postman-bin visual-studio-code-bin google-chrome microsoft-edge-stable-bin openvpn3
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+### Enable openvpn3
+sudo openvpn3-admin netcfg-service --config-set systemd-resolved true

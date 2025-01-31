@@ -5,15 +5,15 @@ set $mod Mod4
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "1 - Firefox"
-set $ws2 "2 - Code Editor"
+set $ws1 "1 - Web"
+set $ws2 "2 - Code"
 set $ws3 "3 - Terminal"
 set $ws4 "4 - Database"
 set $ws5 "5 - Work"
-set $ws6 "6 - Remote Desktop"
-set $ws7 "7 - Virtual Machines"
+set $ws6 "6 - Work"
+set $ws7 "7 - Virt"
 set $ws8 "8 - Notes"
-set $ws9 "9 - Other World"
+set $ws9 "9 - New World"
 # set terminal and menu
 set $term kitty
 set $menu wofi --show drun  -i | xargs swaymsg exec --
