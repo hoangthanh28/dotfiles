@@ -1,0 +1,64 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/']
+help=@as []
+screensaver=['<Super>l']
+
+[custom-keybindings/PopLaunch1]
+binding='Launch1'
+command='gnome-control-center wifi'
+name='WiFi'
+
+[custom-keybindings/custom0]
+binding='<Super>Return'
+command='kitty'
+name='kitty'
+
+[custom-keybindings/custom1]
+binding='<Super>e'
+command='nautilus'
+name='nautilus'
+
+[custom-keybindings/custom10]
+binding='<Super>t'
+command='thorium-browser'
+name='thorium'
+
+[custom-keybindings/custom2]
+binding='<Super>s'
+command='~/scripts/flameshot.sh'
+name='flameshot'
+
+[custom-keybindings/custom3]
+binding='<Super>v'
+command='copyq show'
+name='copyq show'
+
+[custom-keybindings/custom4]
+binding='<Super>F4'
+command='~/.local/bin/dbeaver'
+name='dbeaver'
+
+[custom-keybindings/custom5]
+binding='<Super>F1'
+command='firefox'
+name='firefox'
+
+[custom-keybindings/custom6]
+binding='<Super>F6'
+command='microsoft-edge-stable'
+name='edge'
+
+[custom-keybindings/custom7]
+binding='<Alt><Super>Delete'
+command='shutdown now'
+name='shutdown'
+
+[custom-keybindings/custom8]
+binding='<Super>g'
+command='google-chrome-stable'
+name='google-chrome'
+
+[custom-keybindings/custom9]
+binding='<Super>m'
+command='microsoft-edge-stable'
+name='edge'
